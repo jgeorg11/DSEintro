@@ -1,3 +1,2 @@
-ascii_magic==2.7.5
-pathlib==1.0.1
+ascii-magic==2.7.5
 pillow==11.3.0
