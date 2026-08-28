@@ -11,10 +11,19 @@ My academic careers follows quite a non-traditional tragectory. It was assumed t
 - MSDA Capstone
     - thesis: NLP with Random Forest Classifiers for Stock Price Prediction using News Headlines
 
-## Run the script
+## Run the executable
+### Windows
 ```sh
-git clone git@github.com:jgeorg11/DSEintro.git
+git clone --branch main-rust git@github.com:jgeorg11/DSEintro.git
 cd DSEintro
-python -m pip install -r requirements.txt
-python .\src\simple_script.py
+.\DSEintro.exe
 ```
+
+### macOS
+```sh
+git clone --branch main-rust git@github.com:jgeorg11/DSEintro.git
+cd DSEintro
+./DSEintro
+```
+
+Run the executable from the repo folder so it can find the images in `data/`.

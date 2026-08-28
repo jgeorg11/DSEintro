@@ -1,2 +1,0 @@
-ascii-magic==2.7.5
-pillow==11.3.0

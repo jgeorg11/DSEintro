@@ -1,39 +1,52 @@
-#!/usr/bin/env python3
-
-"""
+/*
 Author: John George
 Fun Fact: I sleep on a full-wave 1960s waterbed
-"""
+*/
+use std::{
+    io::{self, Write},
+    path::Path,
+};
+use viuer::{Config, print_from_file};
 
-import os
-from ascii_magic import AsciiArt
-from pathlib import Path
+fn get_user_input() -> io::Result<String> {
+    let mut input = String::new();
+    print!(
+        "Use the following buttons to learn more!\n\
+         H: Work J: Family K: Hobbies L: Quit\n\
+         Input: "
+    );
 
-# Function to clear the screen based on the operating system
-def clear_screen():
-    # 'nt' means Windows, otherwise it is Linux/Mac
-    os.system('cls' if os.name == 'nt' else 'clear')
+    io::stdout().flush()?; // Ensure the prompt is displayed before reading input
+    io::stdin().read_line(&mut input)?;
 
-def get_user_input():
-    user_input = input("""Use the following buttons to learn more!
-H: Work J: Family K: Hobbies L: Quit
-Input: """)
-        
-    clear_screen()
-    return user_input.upper()
+    Ok(input.trim().to_uppercase())
+}
 
-def get_work():
-    # find file reletive to script
-    image_path = Path(__file__).resolve().parent.parent / "data" / "usaf.jpg"
-    # Load from a local file 
-    my_art = AsciiArt.from_image(str(image_path))
-    my_art.to_terminal(columns=80)
-    print("""My academic career has followed a non-traditional trajectory. It was assumed
+fn show_image(filename: &str) {
+    let path = Path::new("data").join(filename);
+
+    let config = Config {
+        height: Some(12),
+        absolute_offset: false,
+        ..Default::default()
+    };
+
+    if let Err(error) = print_from_file(&path, &config) {
+        eprintln!("Failed to display image: {}", error);
+    }
+
+    println!();
+}
+
+fn get_work() {
+    show_image("usaf.jpg");
+    println!(
+        r#"My academic career has followed a non-traditional trajectory. It was assumed
 that after graduating high school, I would follow in my father and grandfather's
 footsteps. Both of them attended UTK and became dentists. My uncle also attended
 UTK and went on to become an orthopedic surgeon. I presume there was some
 brotherly competition involved. Unfortunately, I did not care to put my hands in
-people's mouths all day. Not wanting to waste money and time in college, I
+:wqpeople's mouths all day. Not wanting to waste money and time in college, I
 decided I would join the military until I had decided on a career path. I
 remember talking with a recruiter who recommended a job working on aircraft.
 While sitting in his office in Tennessee one spring, he said something like,
@@ -55,15 +68,15 @@ Oak Ridge National Laboratory in 2025. I am now furthering my academic career
 with a PhD program to drive the cutting edge even further. From DSE511, I hope
 to deepen my understanding of data science research methods, strengthen my
 ability to analyze and communicate findings, and apply those skills to
-meaningful research problems in AI and national laboratory work.""")
+meaningful research problems in AI and national laboratory work.
+"#
+    );
+}
 
-def get_family():
-    # find file reletive to script
-    image_path = Path(__file__).resolve().parent.parent / "data" / "family.png"
-    # Load from a local file 
-    my_art = AsciiArt.from_image(str(image_path))
-    my_art.to_terminal(columns=80)
-    print("""I met my wife in 2015. We both worked at Chick-fil-A in Alcoa. I was the
+fn get_family() {
+    show_image("family.png");
+    println!(
+        r#"I met my wife in 2015. We both worked at Chick-fil-A in Alcoa. I was the
 fry cook, in charge of cooking chicken, and she was the cashier, in charge of
 selling it. It was a match made in heaven. We were married in 2017 and have two
 daughters. My oldest, Athena, is six years old. She is a rough-and-tumble tomboy
@@ -73,15 +86,14 @@ proud father and husband. I am particularly proud of my wife, who recently left
 her role as a stay-at-home mom of six years to return to UTK to pursue her
 master's in social work. I also have three dogs: a highly energetic Irish setter
 named Ayla, a couch-potato Irish doodle named Arya, and a 10-year-old Yorkie
-named Ava who weighs a whopping three pounds.""")
-
-def get_hobbies():
-    # find file reletive to script
-    image_path = Path(__file__).resolve().parent.parent / "data" / "beer.png"
-    # Load from a local file 
-    my_art = AsciiArt.from_image(str(image_path))
-    my_art.to_terminal(columns=80)
-    print("""If I ever manage to carve out free time between family, work, and school, I
+named Ava who weighs a whopping three pounds.
+"#
+    );
+}
+fn get_hobbies() {
+    show_image("beer.png");
+    println!(
+        r#"If I ever manage to carve out free time between family, work, and school, I
 enjoy homebrewing beers, wines, and meads. I currently buy pre-bundled beer
 ingredient kits, but I hope to be able to craft my own recipes one day. I have
 two muscadine bushes that I use for homemade muscadine wine. I am also an avid
@@ -89,25 +101,29 @@ cruiser. I make sure I go on at least one cruise a year. As I have mentioned
 before, I am also a learn-it-all that loves to challenge myself. After having
 mastered Python and VS Code, I switched my daily editor to Vim. That is why the
 navigation in this script is h, j, k, and l, which correspond to left, down, up,
-and right in Vim. I have also rewritten this app in Rust on a separate branch.""")
+and right in Vim. I have also rewritten this app in Rust on a separate branch.
+"#
+    );
+}
 
-def quit():
-    pass
+fn main() -> io::Result<()> {
+    io::stdout().flush()?;
 
-if __name__ == "__main__":
-    clear_screen()
+    loop {
+        let user_input = get_user_input()?;
 
-    user_input = get_user_input()
+        // ASCII terminal magic to clear the screen and move the cursor to the top-left corner
+        print!("\x1B[2J\x1B[H");
+        io::stdout().flush()?;
 
-    while user_input != "L":
-        match user_input:
-            case "H":
-                get_work()
-            case "J":
-                get_family()
-            case "K":
-                get_hobbies()
-            case _:
-                print("Invalid input.")
+        match user_input.as_str() {
+            "H" => get_work(),
+            "J" => get_family(),
+            "K" => get_hobbies(),
+            "L" => break,
+            _ => println!("Invalid input."),
+        }
+    }
 
-        user_input = get_user_input()
+    Ok(())
+}
