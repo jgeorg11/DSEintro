@@ -28,34 +28,29 @@ def get_work():
     # Load from a local file 
     my_art = AsciiArt.from_image(str(image_path))
     my_art.to_terminal(columns=80)
-    print("""My academic career has followed a non-traditional trajectory. It was assumed
-that after graduating high school, I would follow in my father and grandfather's
-footsteps. Both of them attended UTK and became dentists. My uncle also attended
-UTK and went on to become an orthopedic surgeon. I presume there was some
-brotherly competition involved. Unfortunately, I did not care to put my hands in
-people's mouths all day. Not wanting to waste money and time in college, I
-decided I would join the military until I had decided on a career path. I
-remember talking with a recruiter who recommended a job working on aircraft.
-While sitting in his office in Tennessee one spring, he said something like,
-"Who wouldn't want to be outside in this beautiful weather, getting paid to work
-on the most cutting-edge aircraft ever made?" That was true, but I also knew the
-Air Force had military bases in San Antonio, Texas, in the summer and Anchorage,
-Alaska, in the winter. I told him that sounded nice here today, but not in those
-other places, so I would prefer a position that was entirely indoors. He said I
-would be a good fit for "cyber." I had never considered information technology
-professionally, but I truly fell in love with the work. I have always been a
-learn-it-all, not a know-it-all, and there is always more to discover in the
-field. While in the military, I earned my BS in information technology security.
-I worked there for about eight years before I was hired as an engineer at
-Microsoft in 2019. I continued my education while working at Microsoft and went
-back to school for my MS in data analytics shortly after my first daughter was
-born. Despite being the engineering expert in my field at Microsoft, I still
-felt the drive to further my education and explore the unknown, which led me to
-Oak Ridge National Laboratory in 2025. I am now furthering my academic career
-with a PhD program to drive the cutting edge even further. From DSE511, I hope
-to deepen my understanding of data science research methods, strengthen my
-ability to analyze and communicate findings, and apply those skills to
-meaningful research problems in AI and national laboratory work.""")
+    print("""
+My professional path began when I decided to step away from college and join
+the military while determining what career I wanted to pursue. I remember
+speaking with a recruiter who recommended working on aircraft. Sitting in
+his Tennessee office on a beautiful spring day, he asked, “Who wouldn’t want
+to be outside in this weather, getting paid to work on the most cutting-edge
+aircraft ever made?” I looked more closely at where those aircraft bases were
+located and decided that working outdoors might be pleasant in Tennessee but
+considerably less appealing in Anchorage, Alaska. Instead, I asked for a job
+that would allow me to work from a chair in a temperature-controlled room. He
+suggested cyber.
+
+Although I had never considered information technology as a profession, I fell
+in love with the field after completing technical training and beginning
+full-time work on base. I have always considered myself a learn-it-all rather
+than a know-it-all, and I had found an ever-changing field that rewarded
+constant learning. I worked exclusively in the military for approximately eight
+years before joining Microsoft as an engineer in 2019. Despite becoming an
+engineering expert in my field, I remained driven to explore less-developed
+areas of technology. That desire eventually led me to Oak Ridge National
+Laboratory in 2025, where I now work at the cutting edge of artificial
+intelligence and emerging technologies.
+""")
 
 def get_family():
     # find file reletive to script
@@ -63,17 +58,22 @@ def get_family():
     # Load from a local file 
     my_art = AsciiArt.from_image(str(image_path))
     my_art.to_terminal(columns=80)
-    print("""I met my wife in 2015. We both worked at Chick-fil-A in Alcoa. I was the
-fry cook, in charge of cooking chicken, and she was the cashier, in charge of
-selling it. It was a match made in heaven. We were married in 2017 and have two
-daughters. My oldest, Athena, is six years old. She is a rough-and-tumble tomboy
-who likes wrestling and playing outside. My youngest, Ahsoka, is a two-year-old
-girly girl, a princess who will not get in the grass barefoot. I am a very
-proud father and husband. I am particularly proud of my wife, who recently left
-her role as a stay-at-home mom of six years to return to UTK to pursue her
-master's in social work. I also have three dogs: a highly energetic Irish setter
-named Ayla, a couch-potato Irish doodle named Arya, and a 10-year-old Yorkie
-named Ava who weighs a whopping three pounds.""")
+    print("""
+I met my wife in 2014 when we both worked at Chick-Fil-A in Alcoa, TN.  I was
+working as a fry cook, and she was the newest cashier in training.  After
+coming back from basic training, we reconnected and decided to see where we
+would go.  I knew it would be marriage, but she had to catch up. We got married
+in 2017 and have grown our family with two daughters.  My oldest, Athena, is
+six years old who likes to play sports and be outside. My youngest, Ahsoka, is
+a two-year-old girly girl who cannot be bothered to even let grass touch her
+barefoot. I am a very proud father, and even more proud as a husband.  Before I
+got accepted to this class, my wife learned that she would also be leaving her
+role as a stay-at-home mom of six years.  She is now full time at UTK online
+becoming a master’s in social work.  We also have opened our home to three
+dogs.  We have a highly energetic Irish Setter named Ayla, I am the emotional
+support human for our Irish doodle named Arya, and we have an old yorkie that
+weighs three pounds and runs the house named Ava.
+""")
 
 def get_hobbies():
     # find file reletive to script
@@ -81,15 +81,22 @@ def get_hobbies():
     # Load from a local file 
     my_art = AsciiArt.from_image(str(image_path))
     my_art.to_terminal(columns=80)
-    print("""If I ever manage to carve out free time between family, work, and school, I
-enjoy homebrewing beers, wines, and meads. I currently buy pre-bundled beer
-ingredient kits, but I hope to be able to craft my own recipes one day. I have
-two muscadine bushes that I use for homemade muscadine wine. I am also an avid
-cruiser. I make sure I go on at least one cruise a year. As I have mentioned
-before, I am also a learn-it-all that loves to challenge myself. After having
+    print("""
+If I ever manage to carve out free time between family, work, and school, I
+enjoy homebrewing beers, wines, and meads.  I am currently buying pre-bundled beer
+ingredient kits, but I hope to be able to craft my own recipes one day.  I have
+two muscadine bushes that I inherited from the previous house owner and now use
+it for homemade muscadine wine.  Thanks to my wife I am an avid traveler,
+focusing right now on the United States, and cruises.  She plans at least one
+cruise a year and ends up driving around this side of the country for two other
+vacations each year.  I am also a learn-it-all that loves to challenge myself
+on new projects and help my friends with their passion projects.  After having
 mastered Python and VS Code, I switched my daily editor to Vim. That is why the
-navigation in this script is h, j, k, and l, which correspond to left, down, up,
-and right in Vim. I have also rewritten this app in Rust on a separate branch.""")
+navigation in this script is h, j, k, and l, which correspond to left, down,
+up, and right in Vim. I have also rewritten this app in Rust on a separate
+branch, because I truly enjoy pushing into new ideas and trying other ways to
+keep myself challenged and informed.
+""")
 
 def quit():
     pass
