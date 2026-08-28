@@ -1,4 +1,4 @@
-# DES 511 Introduction Index Card
+# DSE 511 Introduction Index Card
 ## John George
 ### Background
 
@@ -21,7 +21,7 @@ git clone --branch main-rust git@github.com:jgeorg11/DSEintro.git
 cd DSEintro
 .\DSEintro.exe
 ```
-
+>could take up to a minute to start in PowerShell
 ### macOS
 ```sh
 git clone --branch main-rust git@github.com:jgeorg11/DSEintro.git
