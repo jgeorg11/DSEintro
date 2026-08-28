@@ -1,4 +1,4 @@
-# DES 511 Introduction Index Card
+# DSE 511 Introduction Index Card
 ## John George
 ### Background
 
